@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FeetInchMeterCmScreen from "./screens/FeetInchMeterCmScreen";
+import HomeScreen from "./screens/HomeScreen";
+import KiloGramsPoundOuncesScreen from "./screens/KiloGramsPoundOuncesScreen";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "Home" }}
+        />
+        <Stack.Screen
+          name="FeetInchMeterCm"
+          component={FeetInchMeterCmScreen}
+          options={{ title: "Feet/Inch - Meter/Cms" }}
+        />
+        <Stack.Screen
+          name="KiloGramsPoundOunces"
+          component={KiloGramsPoundOuncesScreen}
+          options={{ title: "Kilo/Grams - Pound/Ounces" }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
