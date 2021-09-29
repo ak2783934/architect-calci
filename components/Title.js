@@ -13,17 +13,20 @@ const Title = () => {
           color: "#fff",
           height: 79,
           alignItems: "center",
-          justifyContent: "center",
         }}
       >
         <Image
           source={require("../assets/applogo.png")}
-          style={{ width: 50, height: 50, marginRight: 10 }}
+          style={{
+            width: 50,
+            height: 50,
+            marginLeft: 18,
+            marginRight: 25,
+          }}
         />
         <Text
           style={{
             fontSize: 36,
-            textAlign: "center",
           }}
         >
           Architect Calci
@@ -32,16 +35,5 @@ const Title = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  heading: {
-    backgroundColor: "#4682B4",
-    color: "#fff",
-    height: 79,
-    fontSize: 36,
-    textAlign: "center",
-    paddingTop: 10,
-  },
-});
 
 export default Title;

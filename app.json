@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "unit-convertor",
-    "slug": "unit-convertor",
+    "name": "Architect Calci",
+    "slug": "architect-calci",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/applogo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/applogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/applogo.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.ak2783934.architectcalci"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/applogo.png"
+    },
+    "description": ""
   }
 }

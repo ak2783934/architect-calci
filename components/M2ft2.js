@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
 import { Text, Image } from "react-native-elements";
+import { writeInPower } from "../utils/writeInPower";
 
 const M2ft2 = () => {
   const [area, setArea] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
   const [m2, setM2] = useState(true);
-  const [arr, setArr] = useState(["m^2", "ft^2"]);
+
+  const [arr, setArr] = useState([
+    { base: "m", exponent: "2" },
+    { base: "ft", exponent: "2" },
+  ]);
   const [convertedValue, setConvertedValue] = useState(0);
 
   return (
@@ -45,7 +50,7 @@ const M2ft2 = () => {
             textAlign: "center",
           }}
         >
-          {arr[0]}
+          {writeInPower(arr[0].base, arr[0].exponent)}
         </Text>
       </View>
 
@@ -94,7 +99,7 @@ const M2ft2 = () => {
             textAlign: "center",
           }}
         >
-          {arr[1]}
+          {writeInPower(arr[1].base, arr[1].exponent)}
         </Text>
       </View>
       <TouchableOpacity

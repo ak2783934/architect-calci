@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
 import { Text } from "react-native-elements";
+import { writeInPower } from "../utils/writeInPower";
 
 const AreaInFt2 = () => {
   const [lengthIn, setLengthIn] = useState(0);
@@ -225,7 +226,7 @@ const AreaInFt2 = () => {
             textAlign: "center",
           }}
         >
-          ft^2
+          {writeInPower("ft", "2")}
         </Text>
       </View>
 
@@ -271,21 +272,6 @@ const AreaInFt2 = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  inputStyle: {
-    height: 48,
-    borderRadius: 5,
-    width: 300,
-    margin: 10,
-    backgroundColor: "white",
-  },
-  valueStyle: {
-    height: 40,
-    alignItems: "center",
-    backgroundColor: "#CACACA",
-    marginBottom: 10,
-    width: 300,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default AreaInFt2;
