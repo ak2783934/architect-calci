@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
 import { Text, Image } from "react-native-elements";
+import FinalValue from "../OptimizedComponents/FinalValue";
 
 const FeetInch = () => {
   const [num, setNum] = useState(0);
@@ -32,6 +33,8 @@ const FeetInch = () => {
           onChangeText={(value) => {
             setNum(value);
           }}
+          value={num}
+          maxLength={10}
           keyboardType="numeric"
         />
         <Text
@@ -62,42 +65,11 @@ const FeetInch = () => {
         />
       </TouchableOpacity>
 
-      <View
-        style={{
-          flexDirection: "row",
-          marginTop: 21,
-          width: 273,
-          height: 48,
-          alignSelf: "center",
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#CACACA",
-            height: 48,
-            width: 208,
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            paddingTop: 5,
-          }}
-        >
-          {isPressed && <Text style={{ fontSize: 24 }}>{convertedValue}</Text>}
-        </View>
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          {arr[1]}
-        </Text>
-      </View>
+      <FinalValue
+        isPressed={isPressed}
+        convertedValue={convertedValue}
+        tagValue={arr[1]}
+      />
 
       <TouchableOpacity
         onPress={() => {
@@ -120,6 +92,9 @@ const FeetInch = () => {
       <TouchableOpacity
         onPress={() => {
           setIsPressed(false);
+          setNum(0);
+          setFeetInch(true);
+          setArr(["ft", "inch"]);
         }}
         style={{
           backgroundColor: "#B0C4DE",

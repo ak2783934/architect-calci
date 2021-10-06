@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
+import { View, TouchableOpacity, TextInput } from "react-native";
 import { Text } from "react-native-elements";
 import { writeInPower } from "../utils/writeInPower";
+import FinalValue from "../OptimizedComponents/FinalValue";
 
 const AreaInM2 = () => {
   const [length, setLength] = useState(0);
@@ -41,6 +42,8 @@ const AreaInM2 = () => {
           onChangeText={(value) => {
             setLength(value);
           }}
+          value={length}
+          maxLength={5}
           keyboardType="numeric"
         />
         <Text
@@ -85,9 +88,11 @@ const AreaInM2 = () => {
             padding: 10,
             fontSize: 20,
           }}
+          value={breadth}
           onChangeText={(value) => {
             setBreadth(value);
           }}
+          maxLength={5}
           keyboardType="numeric"
         />
         <Text
@@ -115,41 +120,13 @@ const AreaInM2 = () => {
       >
         Area
       </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: 273,
-          height: 48,
-          alignSelf: "center",
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#CACACA",
-            height: 48,
-            width: 208,
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            paddingTop: 5,
-          }}
-        >
-          {clicked && <Text style={{ fontSize: 24 }}>{calculatedValue}</Text>}
-        </View>
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          {writeInPower("m", "2")}
-        </Text>
-      </View>
+
+      <FinalValue
+        isPressed={clicked}
+        convertedValue={calculatedValue}
+        tagValue={writeInPower("m", "2")}
+      />
+
       <TouchableOpacity
         onPress={() => {
           setClicked(true);
@@ -171,6 +148,8 @@ const AreaInM2 = () => {
       <TouchableOpacity
         onPress={() => {
           setClicked(false);
+          setLength(0);
+          setBreadth(0);
         }}
         style={{
           backgroundColor: "#B0C4DE",

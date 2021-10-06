@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
 import { Text } from "react-native-elements";
 import { writeInPower } from "../utils/writeInPower";
+import FinalValue from "../OptimizedComponents/FinalValue";
 
 const AreaInFt2 = () => {
   const [lengthIn, setLengthIn] = useState(0);
@@ -40,6 +41,8 @@ const AreaInFt2 = () => {
             padding: 10,
             fontSize: 20,
           }}
+          maxLength={5}
+          value={lengthFt}
           onChangeText={(value) => {
             setLengthFt(value);
           }}
@@ -81,6 +84,8 @@ const AreaInFt2 = () => {
           onChangeText={(value) => {
             setLengthIn(value);
           }}
+          value={lengthIn}
+          maxLength={5}
           keyboardType="numeric"
         />
         <Text
@@ -129,6 +134,8 @@ const AreaInFt2 = () => {
           onChangeText={(value) => {
             setBreadthFt(value);
           }}
+          maxLength={5}
+          value={breadthFt}
           keyboardType="numeric"
         />
         <Text
@@ -167,6 +174,8 @@ const AreaInFt2 = () => {
           onChangeText={(value) => {
             setBreadthIn(value);
           }}
+          maxLength={5}
+          value={breadthIn}
           keyboardType="numeric"
         />
         <Text
@@ -194,41 +203,11 @@ const AreaInFt2 = () => {
       >
         Area
       </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: 273,
-          height: 48,
-          alignSelf: "center",
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#CACACA",
-            height: 48,
-            width: 208,
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            paddingTop: 5,
-          }}
-        >
-          {clicked && <Text style={{ fontSize: 24 }}>{calculatedValue}</Text>}
-        </View>
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          {writeInPower("ft", "2")}
-        </Text>
-      </View>
+      <FinalValue
+        isPressed={clicked}
+        convertedValue={calculatedValue}
+        tagValue={writeInPower("ft", "2")}
+      />
 
       <TouchableOpacity
         onPress={() => {
@@ -254,6 +233,10 @@ const AreaInFt2 = () => {
       <TouchableOpacity
         onPress={() => {
           setClicked(false);
+          setLengthIn(0);
+          setLengthFt(0);
+          setBreadthFt(0);
+          setBreadthIn(0);
         }}
         style={{
           backgroundColor: "#B0C4DE",

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, TouchableOpacity, TextInput } from "react-native";
 import { Text, Image } from "react-native-elements";
 import { writeInPower } from "../utils/writeInPower";
+import FinalValue from "../OptimizedComponents/FinalValue";
 
 const M2ft2 = () => {
   const [area, setArea] = useState(0);
@@ -37,6 +38,8 @@ const M2ft2 = () => {
           onChangeText={(value) => {
             setArea(value);
           }}
+          maxLength={10}
+          value={area}
           keyboardType="numeric"
         />
         <Text
@@ -66,42 +69,13 @@ const M2ft2 = () => {
           style={{ width: 40, height: 40 }}
         />
       </TouchableOpacity>
-      <View
-        style={{
-          flexDirection: "row",
-          marginTop: 21,
-          width: 273,
-          height: 48,
-          alignSelf: "center",
-        }}
-      >
-        <View
-          style={{
-            alignItems: "center",
-            backgroundColor: "#CACACA",
-            height: 48,
-            width: 208,
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            paddingTop: 5,
-          }}
-        >
-          {isPressed && <Text style={{ fontSize: 24 }}>{convertedValue}</Text>}
-        </View>
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          {writeInPower(arr[1].base, arr[1].exponent)}
-        </Text>
-      </View>
+
+      <FinalValue
+        isPressed={isPressed}
+        convertedValue={convertedValue}
+        tagValue={writeInPower(arr[1].base, arr[1].exponent)}
+      />
+
       <TouchableOpacity
         onPress={() => {
           setIsPressed(true);
@@ -123,6 +97,12 @@ const M2ft2 = () => {
       <TouchableOpacity
         onPress={() => {
           setIsPressed(false);
+          setArea(0);
+          setM2(true);
+          setArr([
+            { base: "m", exponent: "2" },
+            { base: "ft", exponent: "2" },
+          ]);
         }}
         style={{
           backgroundColor: "#B0C4DE",
