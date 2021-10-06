@@ -1,4 +1,4 @@
-#### This is an architech calci mobile application made according to the demand of a client. We can imporve this calculator based on further requirements of the clients. This is also deployed, Will provide the link to the app soon!
+#### This is an architect calci mobile application made according to the demand of a client. We can imporve this calculator based on further requirements of the clients. This is also deployed, Will provide the link to the app soon!
 
 Currently app is having 4 features
 
