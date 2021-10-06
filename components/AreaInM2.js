@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, TextInput } from "react-native";
+import { View } from "react-native";
 import { Text } from "react-native-elements";
 import { writeInPower } from "../utils/writeInPower";
 import FinalValue from "../OptimizedComponents/FinalValue";
+import MyInput from "../OptimizedComponents/MyInput";
+import MyButton from "../OptimizedComponents/MyButton";
 
 const AreaInM2 = () => {
   const [length, setLength] = useState(0);
@@ -21,45 +23,15 @@ const AreaInM2 = () => {
       >
         Length
       </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: 273,
-          height: 48,
-          alignSelf: "center",
+
+      <MyInput
+        onChangeText={(value) => {
+          setLength(value);
         }}
-      >
-        <TextInput
-          style={{
-            height: 48,
-            width: 208,
-            backgroundColor: "white",
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            padding: 10,
-            fontSize: 20,
-          }}
-          onChangeText={(value) => {
-            setLength(value);
-          }}
-          value={length}
-          maxLength={5}
-          keyboardType="numeric"
-        />
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          m
-        </Text>
-      </View>
+        value={length}
+        tagValue="m"
+      />
+
       <Text
         style={{
           fontSize: 24,
@@ -70,45 +42,14 @@ const AreaInM2 = () => {
       >
         Breadth
       </Text>
-      <View
-        style={{
-          flexDirection: "row",
-          width: 273,
-          height: 48,
-          alignSelf: "center",
+
+      <MyInput
+        onChangeText={(value) => {
+          setBreadth(value);
         }}
-      >
-        <TextInput
-          style={{
-            height: 48,
-            width: 208,
-            backgroundColor: "white",
-            borderBottomLeftRadius: 5,
-            borderTopLeftRadius: 5,
-            padding: 10,
-            fontSize: 20,
-          }}
-          value={breadth}
-          onChangeText={(value) => {
-            setBreadth(value);
-          }}
-          maxLength={5}
-          keyboardType="numeric"
-        />
-        <Text
-          style={{
-            backgroundColor: "#B0C4DE",
-            padding: 5,
-            width: 65,
-            borderTopRightRadius: 5,
-            borderBottomRightRadius: 5,
-            fontSize: 24,
-            textAlign: "center",
-          }}
-        >
-          m
-        </Text>
-      </View>
+        value={breadth}
+        tagValue="m"
+      />
 
       <Text
         style={{
@@ -127,43 +68,22 @@ const AreaInM2 = () => {
         tagValue={writeInPower("m", "2")}
       />
 
-      <TouchableOpacity
+      <MyButton
         onPress={() => {
           setClicked(true);
           setCalculatedValue(length * breadth);
         }}
-        style={{
-          backgroundColor: "#B0C4DE",
-          alignItems: "center",
-          width: 273,
-          height: 44,
-          marginTop: 28,
-          borderRadius: 5,
-          paddingTop: 4,
-          alignSelf: "center",
-        }}
-      >
-        <Text style={{ fontSize: 24 }}>Convert</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
+        title="Convert"
+      />
+
+      <MyButton
         onPress={() => {
           setClicked(false);
           setLength(0);
           setBreadth(0);
         }}
-        style={{
-          backgroundColor: "#B0C4DE",
-          alignItems: "center",
-          width: 273,
-          height: 44,
-          marginTop: 21,
-          borderRadius: 5,
-          paddingTop: 4,
-          alignSelf: "center",
-        }}
-      >
-        <Text style={{ fontSize: 24 }}>Reset</Text>
-      </TouchableOpacity>
+        title="Reset"
+      />
     </View>
   );
 };

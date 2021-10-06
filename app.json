@@ -4,30 +4,28 @@
     "slug": "architect-calci",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/applogo.png",
+    "icon": "./assets/mylogo.png",
     "splash": {
-      "image": "./assets/applogo.png",
+      "image": "./assets/mylogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/applogo.png",
+        "foregroundImage": "./assets/mylogo.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ak2783934.architectcalci"
     },
     "web": {
-      "favicon": "./assets/applogo.png"
+      "favicon": "./assets/mylogo.png"
     },
     "description": ""
   }
